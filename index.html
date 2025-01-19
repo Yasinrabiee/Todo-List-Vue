@@ -4,19 +4,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Vue/Js - TodoList</title>
+	<link rel="stylesheet" href="css/bootstrap.rtl.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/vue.js"></script>
 	<script src="js/script.js" defer></script>
 </head>
 <body>
 	<div id="app">
-		<input type="text" name="text" v-model="newTodo" autofocus placeholder="Add your new Todo...">
-		<button @click="addTodo">add</button>
-
-		<br><br>
-
-		<ul id="todos">
-			<li v-for="(todo, index) in defaultTodo" :id="index" @click="removeTodo">{{ todo }}</li>
+		<div id="wrapper">
+			<input type="text" name="text" class="form-control"
+			v-model="newTodo" autofocus placeholder="Add your new Todo...">
+			<button @click="addTodo" class="btn btn-info"
+			style="color: white !important;">Add</button>
+		</div>
+		<ul id="todos" class="list-group">
+			<li class="list-group-item list-group-item-info"
+			v-for="(todo, index) in defaultTodo" :id="index" @click="removeTodo">
+				{{ todo }}
+			</li>
 		</ul>
 	</div>
 </body>
